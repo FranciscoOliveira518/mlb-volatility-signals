@@ -11,7 +11,7 @@ calibration and edge analysis. Each script runs independently and shares no impo
 
 | File | Role | Output |
 | --- | --- | --- |
-| `limao.py` | Live pre-game team-strength scanner | `data/signal_records.csv` |
+| `Competitiveness-Scores.py` | Live pre-game team-strength scanner | `data/signal_records.csv` |
 | `Run_Assault__Pitcher-Batter_Analysis_.py` | Pitcher–batter matchup & volatility engine | `data/` (pitch strengths, matchups, volatility face-offs) |
 
 ## Installation
@@ -27,14 +27,14 @@ to use the native Windows certificate store.
 
 ## Usage
 
-### `limao.py`
+### `Competitiveness-Scores.py`
 
 Scans games starting within the next `LOOKAHEAD_HOURS` (default 10) and appends one
 signal record per game. Takes no arguments; edit `SEASON` and `LOOKAHEAD_HOURS` at the
 top of the file.
 
 ```bash
-python limao.py
+python Competitiveness-Scores.py
 ```
 
 ### `Run_Assault__Pitcher-Batter_Analysis_.py`
@@ -56,7 +56,7 @@ python "Run_Assault__Pitcher-Batter_Analysis_.py"
 
 ## How it works
 
-**Team strength** (`limao.py`) — offense, pitching, and defense are converted to
+**Team strength** (`Competitiveness-Scores.py`) — offense, pitching, and defense are converted to
 league-relative z-scores and combined:
 
 ```
@@ -85,7 +85,7 @@ Both scripts create a local `data/` directory on first run:
 
 ```
 data/
-├── signal_records.csv                         # limao.py
+├── signal_records.csv                         # Competitiveness-Scores.py
 ├── pitcher_pitch_strength_latest.{csv,json}   # Run Assault
 ├── batter_pitch_strengths/                    # per-game strengths & matchups
 └── volatility_faceoffs/                       # per-game face-offs, cluster risk, etc.
@@ -106,6 +106,3 @@ All sources are public and unauthenticated; no API keys are stored in these file
 - `Run_Assault__Pitcher-Batter_Analysis_.py` is meant to be run directly, not imported.
 - These modules produce features and signals only — they do not place trades.
 
-## License
-
-Add a `LICENSE` file if you intend to share this publicly (e.g. MIT).
