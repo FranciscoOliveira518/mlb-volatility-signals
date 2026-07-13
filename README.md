@@ -17,7 +17,7 @@ see the in-game lead change hands.
 Why that matters: the target play is temporal (legged) arbitrage on a binary prediction
 market (which team loses and which wins). You take an underdog position pre-game at a
 low price; then, if the game swings and the underdog moves in front, you complete a
-second leg on the other side — now also cheap. If the two legs together cost less than
+second leg on the other side - now also cheap. If the two legs together cost less than
 the $1.00 the winning side pays out, the position is locked and returns a profit
 regardless of the final result.
 
@@ -42,7 +42,7 @@ lead to change hands. (Formulas in [How it works](#how-it-works).)
 
 The second module works at the pitch level. It builds each pitcher's pitch-type profile
 from Statcast, matches it against every batter in the opposing lineup, and aggregates
-those matchups into a game-level burst score — weighting lineup slots with the top of
+those matchups into a game-level burst score - weighting lineup slots with the top of
 the order heaviest. A high score means both offenses are capable of sudden scoring
 bursts, meaning the game can swing in either direction. In addition to the burst score,
 the pitcher and batter stats are also used to compute three other relevant scores to
@@ -98,7 +98,7 @@ python "Run_Assault__Pitcher-Batter_Analysis_.py"
 
 ## How it works
 
-**Team strength** (`limao.py`) — offense, pitching, and defense are converted to
+**Team strength** (`limao.py`) - offense, pitching, and defense are converted to
 league-relative z-scores and combined:
 
 ```
@@ -116,7 +116,7 @@ q = sigmoid(b0 + b1·signed_strength_gap + b2·smg_total_gap)
 
 Without coefficients, `q` is reported as `N/A` (not 0.5).
 
-**Volatility engine** (`Run_Assault…`) — builds per-pitcher pitch-type strength from
+**Volatility engine** (`Run_Assault…`) - builds per-pitcher pitch-type strength from
 Statcast, matches it against each batter, and derives half-inning volatility segments,
 run-assault risk, burst probability, collapse exposure, escape coverage, and
 lineup-cluster risk. Lineup slots are weighted with the top of the order heaviest.
@@ -152,10 +152,10 @@ data/
 
 ## Data sources
 
-- **MLB Stats API** — schedule, probable pitchers, live feed, team fielding.
-- **Baseball Savant / Statcast** (`pybaseball` + custom leaderboard) — hitter metrics
+- **MLB Stats API** - schedule, probable pitchers, live feed, team fielding.
+- **Baseball Savant / Statcast** (`pybaseball` + custom leaderboard) - hitter metrics
   and pitch-level data.
-- **mlb.com/starting-lineups** — announced lineups.
+- **mlb.com/starting-lineups** - announced lineups.
 
 All sources are public and unauthenticated; no API keys are stored in these files.
 
@@ -163,5 +163,5 @@ All sources are public and unauthenticated; no API keys are stored in these file
 
 - `data/` output and the `pybaseball` cache are git-ignored.
 - `Run_Assault__Pitcher-Batter_Analysis_.py` is meant to be run directly, not imported.
-- These modules produce features and signals only — they do not place trades.
+- These modules produce features and signals only - they do not place trades.
 
