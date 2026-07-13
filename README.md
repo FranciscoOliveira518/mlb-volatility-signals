@@ -165,6 +165,3 @@ All sources are public and unauthenticated; no API keys are stored in these file
 - `Run_Assault__Pitcher-Batter_Analysis_.py` is meant to be run directly, not imported.
 - These modules produce features and signals only — they do not place trades.
 
-## License
-
-Add a `LICENSE` file if you intend to share this publicly (e.g. MIT).
